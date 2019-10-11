@@ -189,20 +189,22 @@ def move_to_photo_position(client, hRobot, mode=2):
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
-def move_to_the_highlighter(client, hRobot, mode=2):
+def move_to_the_highligther(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
     # curr_pos = [x, y, z, Rx, Ry, Rz]
     # first move on y axis to avoid to hit the highlighter
     curr_pos[1] = -145
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[0] = 145
-    curr_pos[2] = 85
+    # Orange highligther curr_pos[2] = 108, green one =84
+    curr_pos[2] = 84
     curr_pos[3] = 180
     curr_pos[4] = 0
     curr_pos[5] = 90
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[5] = 180
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
 
 def tesseract_ocr(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -215,3 +217,103 @@ def tesseract_ocr(img):
     # print the text that is read by the OCR
     print(text)
     return text
+
+
+def move_to_initial_writing_position(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    # curr_pos = [x, y, z, Rx, Ry, Rz]
+    curr_pos[0] = 180
+    curr_pos[1] = -45
+    curr_pos[2] = 235
+    curr_pos[3] = 180
+    curr_pos[4] = 0
+    curr_pos[5] = 180
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def move_to_the_sheet(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    # curr_pos = [x, y, z, Rx, Ry, Rz]
+    curr_pos[2] = 86
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def test_writing(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    # 20 of old_pos[0]-curr_pos[0] = 2cm more or less
+    # Test 1: I
+    # curr_pos[0] = 160
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # Test 2: 1
+    # curr_pos[0] = 160
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] = 180
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 86
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] -= 5
+    # curr_pos[1] += 5
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # Test 3: 11
+    # curr_pos[0] = 160
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] = 180
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 86
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] -= 5
+    # curr_pos[1] += 5
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    #
+    # curr_pos[0] = 180
+    # curr_pos[1] -= 20
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 86
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    #
+    # curr_pos[0] = 160
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] = 180
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 86
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] -= 5
+    # curr_pos[1] += 5
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # Test 4: 2
+    curr_pos[0] -= 5
+    curr_pos[1] += 5
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 86
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] += 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, 1, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, 1, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] -= 15
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
