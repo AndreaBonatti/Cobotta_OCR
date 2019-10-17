@@ -196,13 +196,29 @@ def move_to_the_highligther(client, hRobot, mode=2):
     curr_pos[1] = -145
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[0] = 145
-    # Orange highligther curr_pos[2] = 108, green one =84
-    curr_pos[2] = 84
+    # Orange highligther curr_pos[2] = 108, green one =84, 86 if use the grey plastic
+    curr_pos[2] = 90
     curr_pos[3] = 180
     curr_pos[4] = 0
-    curr_pos[5] = 90
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[5] = 180
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def replace_the_highlighter(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    curr_pos[0] = 145
+    curr_pos[1] = -145
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 90
+    curr_pos[3] = 180
+    curr_pos[4] = 0
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def go_up(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    curr_pos[2] = 200
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -222,9 +238,10 @@ def tesseract_ocr(img):
 def move_to_initial_writing_position(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
     # curr_pos = [x, y, z, Rx, Ry, Rz]
+    curr_pos[2] = 235
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[0] = 180
     curr_pos[1] = -45
-    curr_pos[2] = 235
     curr_pos[3] = 180
     curr_pos[4] = 0
     curr_pos[5] = 180
@@ -234,7 +251,7 @@ def move_to_initial_writing_position(client, hRobot, mode=2):
 def move_to_the_sheet(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
     # curr_pos = [x, y, z, Rx, Ry, Rz]
-    curr_pos[2] = 86
+    curr_pos[2] = 90
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -296,19 +313,23 @@ def test_writing(client, hRobot, mode=2):
     # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
     # Test 4: 2
-    curr_pos[0] -= 5
-    curr_pos[1] += 5
-    curr_pos[2] = 105
-    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] -= 5
+    # curr_pos[1] += 5
+    # curr_pos[2] = 105
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[2] = 86
+    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    #
+    # curr_pos[0] += 5
+    # curr_pos[1] -= 5
+    # client.robot_move(hRobot, 1, list_to_string_position(curr_pos), "SPEED=100")
+    # curr_pos[0] -= 5
+    # curr_pos[1] -= 5
+    # client.robot_move(hRobot, 1, list_to_string_position(curr_pos), "SPEED=100")
+
+
     curr_pos[2] = 86
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-
-    curr_pos[0] += 5
-    curr_pos[1] -= 5
-    client.robot_move(hRobot, 1, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[0] -= 5
-    curr_pos[1] -= 5
-    client.robot_move(hRobot, 1, list_to_string_position(curr_pos), "SPEED=100")
 
     curr_pos[0] -= 15
     curr_pos[1] += 10

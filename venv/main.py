@@ -23,18 +23,17 @@ def main():
     # print("Switch to Bcap")
 
     utility.move_to_photo_position(client, hRobot)
-    image = utility.take_img()
+    # image = utility.take_img()
     # cv.imshow("Image", image)
     # cv.waitKey()
     # cv.destroyWindow("Image")
-    text = utility.tesseract_ocr(image)
+    # text = utility.tesseract_ocr(image)
     utility.move_to_the_highligther(client, hRobot)
+
     # switch to use the gripper
     utility.switch_bcap_to_orin(client, hRobot, caoRobot)
     # print("Switch to Orin")
-
     ctrl.Execute("HandMoveH", [20, 1])
-
     utility.switch_orin_to_bcap(client, hRobot, caoRobot)
     # print("Switch to Bcap")
 
@@ -44,12 +43,15 @@ def main():
     utility.move_to_the_sheet(client, hRobot)
 
     utility.test_writing(client, hRobot)
+    utility.go_up(client, hRobot)
+    utility.replace_the_highlighter(client, hRobot)
     utility.switch_bcap_to_orin(client, hRobot, caoRobot)
     # print("Switch to Orin")
     ctrl.Execute("HandMoveH", [20, 0])
     utility.switch_orin_to_bcap(client, hRobot, caoRobot)
     # print("Switch to Bcap")
 
+    utility.go_up(client, hRobot)
     utility.disconnect(client, hCtrl, hRobot)
 
 
