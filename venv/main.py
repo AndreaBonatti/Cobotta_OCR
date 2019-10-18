@@ -39,10 +39,10 @@ def main():
 
     utility.move_to_initial_writing_position(client, hRobot)
     # Time to put a sheet under the robot
-    time.sleep(20)
-    utility.move_to_the_sheet(client, hRobot)
+    # time.sleep(20)
 
-    utility.test_writing(client, hRobot)
+    utility.write_a_character("3", client, hRobot)
+
     utility.go_up(client, hRobot)
     utility.replace_the_highlighter(client, hRobot)
     utility.switch_bcap_to_orin(client, hRobot, caoRobot)
