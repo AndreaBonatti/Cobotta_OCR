@@ -343,7 +343,7 @@ def write_maiusc_i(client, hRobot, mode=2):
 
 def write_three(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
-    
+
     curr_pos[0] -= 5
     curr_pos[1] += 5
     curr_pos[2] = 105
@@ -357,3 +357,21 @@ def write_three(client, hRobot, mode=2):
     curr_pos[0] -= 5
     curr_pos[1] -= 5
     client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] -= 5
+    curr_pos[1] += 5
+    client.robot_move(hRobot, 2, list_to_string_position(curr_pos), "SPEED=100")
+
+    # Half of the three
+    curr_pos[0] -= 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] -= 5
+    curr_pos[1] += 5
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] += 5
+    curr_pos[1] += 5
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
