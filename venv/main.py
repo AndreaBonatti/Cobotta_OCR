@@ -41,7 +41,7 @@ def main():
     # Time to put a sheet under the robot
     # time.sleep(20)
 
-    utility.write_a_character("3", client, hRobot)
+    utility.write_a_character("8", client, hRobot)
 
     utility.go_up(client, hRobot)
     utility.replace_the_highlighter(client, hRobot)

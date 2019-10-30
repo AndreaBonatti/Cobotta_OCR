@@ -196,8 +196,7 @@ def move_to_the_highligther(client, hRobot, mode=2):
     curr_pos[1] = -145
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[0] = 145
-    # Orange highligther curr_pos[2] = 108, green one =84, 86 if use the grey plastic
-    curr_pos[2] = 90
+    curr_pos[2] = 86
     curr_pos[3] = 180
     curr_pos[4] = 0
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
@@ -210,7 +209,7 @@ def replace_the_highlighter(client, hRobot, mode=2):
     curr_pos[0] = 145
     curr_pos[1] = -145
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[2] = 90
+    curr_pos[2] = 92
     curr_pos[3] = 180
     curr_pos[4] = 0
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
@@ -248,30 +247,7 @@ def move_to_initial_writing_position(client, hRobot, mode=2):
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
-def test_writing(client, hRobot, mode=2):
-    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
-    # 20 of old_pos[0]-curr_pos[0] = 2cm more or less
-    # Test 1: I
-    # curr_pos[0] = 160
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # curr_pos[2] = 105
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # Test 2: 1
-    # curr_pos[0] = 160
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # curr_pos[2] = 105
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # curr_pos[0] = 180
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # curr_pos[2] = 86
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # curr_pos[0] -= 5
-    # curr_pos[1] += 5
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    # curr_pos[2] = 105
-    # client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-
-
+# 20 of old_pos[0]-curr_pos[0] = 2cm more or less
 def write_a_character(char, client, hRobot):
     if char == "1":
         write_one(client, hRobot)
@@ -279,24 +255,33 @@ def write_a_character(char, client, hRobot):
         write_two(client, hRobot)
     elif char == "3":
         write_three(client, hRobot)
+    elif char == "4":
+        write_four(client, hRobot)
+    elif char == "5":
+        write_five(client, hRobot)
+    elif char == "6":
+        write_six(client, hRobot)
+    elif char == "7":
+        write_seven(client, hRobot)
+    elif char == "8":
+        write_eight(client, hRobot)
+    elif char == "9":
+        write_six(client, hRobot)
     elif char == "I":
         write_maiusc_i(client, hRobot)
 
 
 def write_one(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
-    curr_pos[2] = 85
-    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[0] -= 20
-    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[2] = 105
-    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[0] += 20
-    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[2] = 85
-    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[0] -= 5
     curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 20
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[2] = 105
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
@@ -374,4 +359,129 @@ def write_three(client, hRobot, mode=2):
     curr_pos[0] += 5
     curr_pos[1] += 5
     client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_four(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[0] -= 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 15
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_five(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 2, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 2, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_six(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    curr_pos[1] += 10
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 6
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_seven(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 20
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_eight(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] += 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 2
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+
 
