@@ -209,7 +209,7 @@ def replace_the_highlighter(client, hRobot, mode=2):
     curr_pos[0] = 145
     curr_pos[1] = -145
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[2] = 92
+    curr_pos[2] = 89
     curr_pos[3] = 180
     curr_pos[4] = 0
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
@@ -266,7 +266,9 @@ def write_a_character(char, client, hRobot):
     elif char == "8":
         write_eight(client, hRobot)
     elif char == "9":
-        write_six(client, hRobot)
+        write_nine(client, hRobot)
+    elif char == "0":
+        write_zero(client, hRobot)
     elif char == "I":
         write_maiusc_i(client, hRobot)
 
@@ -283,7 +285,12 @@ def write_one(client, hRobot, mode=2):
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[0] -= 20
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -309,7 +316,13 @@ def write_two(client, hRobot, mode=2):
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[1] -= 10
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
+    curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -318,11 +331,14 @@ def write_maiusc_i(client, hRobot, mode=2):
 
     curr_pos[2] = 85
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
-
-    curr_pos[0] = 160
+    curr_pos[0] -= 20
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -345,7 +361,7 @@ def write_three(client, hRobot, mode=2):
 
     curr_pos[0] -= 5
     curr_pos[1] += 5
-    client.robot_move(hRobot, 2, list_to_string_position(curr_pos), "SPEED=100")
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
     # Half of the three
     curr_pos[0] -= 5
@@ -359,6 +375,14 @@ def write_three(client, hRobot, mode=2):
     curr_pos[0] += 5
     curr_pos[1] += 5
     client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 15
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
 def write_four(client, hRobot, mode=2):
@@ -375,7 +399,13 @@ def write_four(client, hRobot, mode=2):
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[1] -= 10
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 15
+    curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -400,7 +430,13 @@ def write_five(client, hRobot, mode=2):
     client.robot_move(hRobot, 2, "@P " + list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
+    curr_pos[1] -= 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -428,7 +464,13 @@ def write_six(client, hRobot, mode=2):
     curr_pos[0] -= 6
     curr_pos[1] += 6
     client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 16
+    curr_pos[1] -= 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -444,7 +486,13 @@ def write_seven(client, hRobot, mode=2):
     curr_pos[0] -= 20
     curr_pos[1] += 10
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
     curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
+    curr_pos[1] -= 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -477,11 +525,102 @@ def write_eight(client, hRobot, mode=2):
     curr_pos[0] += 5
     curr_pos[1] += 6
     client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
-    curr_pos[1] += 2
+    curr_pos[0] -= 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_nine(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[0] -= 20
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 10
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] += 5
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] += 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 6
+    curr_pos[1] -= 6
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 4
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_zero(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[0] -= 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] += 5
+    client.robot_move(hRobot, 2, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, 2, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 5
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    curr_pos[1] += 10
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[2] = 105
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 15
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
+def to_the_next_char(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
 
+    curr_pos[1] -= 15
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_a_word(word, client, hRobot):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+    curr_pos[1] = 70
+    client.robot_move(hRobot, 2, list_to_string_position(curr_pos), "SPEED=100")
+
+    for c in word:
+        write_a_character(c, client, hRobot)
+        to_the_next_char(client, hRobot)
