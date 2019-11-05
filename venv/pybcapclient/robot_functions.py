@@ -276,15 +276,15 @@ def write_a_character(char, client, hRobot):
     elif char == "C":
         write_maiusc_c(client, hRobot)
     elif char == "D":
-        write_maiusc_i(client, hRobot)
+        write_maiusc_d(client, hRobot)
     elif char == "E":
-        write_maiusc_i(client, hRobot)
+        write_maiusc_e(client, hRobot)
     elif char == "F":
-        write_maiusc_i(client, hRobot)
+        write_maiusc_f(client, hRobot)
     elif char == "G":
-        write_maiusc_i(client, hRobot)
+        write_maiusc_g(client, hRobot)
     elif char == "H":
-        write_maiusc_i(client, hRobot)
+        write_maiusc_h(client, hRobot)
     elif char == "I":
         write_maiusc_i(client, hRobot)
 
@@ -704,6 +704,182 @@ def write_maiusc_c(client, hRobot, mode=2):
 
     # to allow the subsequent characters to be written on the same line
     curr_pos[0] += 20
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_maiusc_d(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[0] -= 20
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 7
+    curr_pos[0] -= 3
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 3
+    curr_pos[0] -= 7
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_maiusc_e(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[0] -= 20
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 20
+    curr_pos[1] += 15
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_maiusc_f(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[0] -= 20
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 10
+    curr_pos[1] += 15
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_maiusc_g(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[1] -= 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 7
+    curr_pos[0] -= 3
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 3
+    curr_pos[0] -= 7
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 10
+    client.robot_move(hRobot, 1, "@P " + list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[0] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 15
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+
+def write_maiusc_h(client, hRobot, mode=2):
+    curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
+
+    curr_pos[1] += 5
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] -= 20
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[0] += 10
+    curr_pos[1] += 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[2] = 85
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+    curr_pos[1] -= 10
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    curr_pos[2] = 105
+    client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
+
+    # to allow the subsequent characters to be written on the same line
+    curr_pos[0] += 10
     curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
