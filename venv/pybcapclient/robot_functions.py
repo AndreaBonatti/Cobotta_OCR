@@ -742,7 +742,7 @@ def write_maiusc_e(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
 
     curr_pos[0] -= 20
-    curr_pos[1] -= 5
+    curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[2] = 85
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
@@ -776,7 +776,7 @@ def write_maiusc_e(client, hRobot, mode=2):
 
     # to allow the subsequent characters to be written on the same line
     curr_pos[0] += 20
-    curr_pos[1] += 15
+    curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
@@ -784,7 +784,7 @@ def write_maiusc_f(client, hRobot, mode=2):
     curr_pos = robot_getvar(client, hRobot, "@CURRENT_POSITION")
 
     curr_pos[0] -= 20
-    curr_pos[1] -= 5
+    curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
     curr_pos[2] = 85
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
@@ -808,7 +808,7 @@ def write_maiusc_f(client, hRobot, mode=2):
 
     # to allow the subsequent characters to be written on the same line
     curr_pos[0] += 10
-    curr_pos[1] += 15
+    curr_pos[1] += 5
     client.robot_move(hRobot, mode, list_to_string_position(curr_pos), "SPEED=100")
 
 
